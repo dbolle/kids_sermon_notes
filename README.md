@@ -26,3 +26,6 @@ High level workflow
 Guide to set up
 1) Set up the Google Sheet Template
 2) Create Google Form
+
+
+As a note, I started this project with a Google Sheet and was initially generating everything from within the sheet on the Data Entry tab and copy and pasting the word search from an external source. I then added the Google Form and updated the word search but haven't removed the features from the Data Entry tab, so you could run it without the Google Form if you want.

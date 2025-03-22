@@ -1,3 +1,7 @@
 Upload the Excel file as a Google sheet and name it "Autosubmit Kids Sermon Notes Template - Word Search"
 Extensions -> Apps Script
 Copy and paste the getESV function
+
+
+Back on the sheet you will need to enter an ESV.org API token in cell B4 of the Data Entry tab.
+Instructions here: https://api.esv.org/docs/

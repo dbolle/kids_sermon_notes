@@ -6,10 +6,12 @@ function generateWordSearch(targetSheet) {
     Logger.log("Data Entry sheet not found.");
     return;
   }
-  
-  // Get the words from ranges G16:G29 and I16:I29
-  var wordsRange1 = dataEntrySheet.getRange("G16:G29").getValues();
-  var wordsRange2 = dataEntrySheet.getRange("I16:I29").getValues();
+
+  // Get the words from the the Catechism entries
+  var wordsRange1 = dataEntrySheet.getRange("G16:G23").getValues();
+
+  // Get the words from the Sermon Bingo
+  var wordsRange2 = dataEntrySheet.getRange("B12:B35").getValues();
   
   var words = [];
   

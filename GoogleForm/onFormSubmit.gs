@@ -9,7 +9,7 @@ afunction onFormSubmit(e) {
   var bingoWords = namedValues["Please enter 24 words for sermon bingo separated by commas. (e.g. \"Jesus, cross, grace, ...\")"][0];
 
   // Define the template file name
-  var templateName = "testingAutosubmit Kids Sermon Notes Template - Word Search";
+  var templateName = "Autosubmit Kids Sermon Notes Template - Word Search";
 
   // Find the template file in Drive (ensure the name is unique)
   var files = DriveApp.getFilesByName(templateName);

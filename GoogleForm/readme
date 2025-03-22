@@ -1,0 +1,27 @@
+Create a Goolge Form in the same folder as the template Google Sheet.
+
+The name of hte file is on line 12 of the onFormSubmit function, so if you name it something other than "Autosubmit Kids Sermon Notes Template - Word Search" you will need to update that line.
+
+The Google Form should have these 3 questions - copy and paste these exact question or update them in the onFormSubmit function
+  1) What is the date of the sermon?
+      Type: Date
+      Reference to line 7 of onFormSubmit
+  2) What is the sermon text?
+      Type: Short Answer
+      Reference to line 8 of onFormSubmit
+  3) Please enter 24 words for sermon bingo separated by commas. (e.g. "Jesus, cross, grace, ...")
+      Type: Short Answer
+      Reference to line 9 of onFormSubmit
+
+Click to the Responses tab on the sheet and click the "Link to Sheets" button
+
+Open the linked sheet and navigate to Extensions -> Apps Script
+
+Copy and paste the onFormSubmit function and the generateWordSearch function
+
+While still on the Apps Script screen click the triggers setting on the left
+Create a trigger fill the following
+  Choose which function to run: onFormSubmit
+  Which runs at deployment: Head
+  Select event source: From spreadsheet
+  Select event type: On form submit

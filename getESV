@@ -1,0 +1,51 @@
+function getESV(auth,q) {
+  //Set the base URL of the site being called.
+  let baseUrl = 'https://api.esv.org/v3/passage/text/';
+
+  //Set Headers - For esv.org this is where the authorization token goes.
+  let headers = {
+    'headers' : {
+      'Authorization' : auth
+      }
+  }
+
+  //Setting the paramaters for the query. Note: UrlFetchApp doesn't support paramaters natively, so these will be fed into the buildUrl function below.
+  let params = {
+      'q' : q,
+      'include-headings': 'False',
+      'include-footnotes': 'False',
+      'include-verse-numbers': 'True',
+      'include-short-copyright': 'False',
+      'include-passage-references': 'True'
+  };
+
+//Call the API endpoint and log the response
+  let response = UrlFetchApp.fetch(buildUrl_(baseUrl,params),headers);
+  Logger.log(response.getContentText());
+
+//Load the logged response into a variable
+  var fact = response.getContentText();
+
+  var fact2 = JSON.parse(fact);
+
+  var fact3 = fact2.passages; 
+
+//Insert the result into the specified cell in the active Google Sheet
+//  sheet.getRange(1,2).setValue(fact);
+return(fact3);
+}
+
+
+/**
+ * Builds a complete URL from a base URL and a map of URL parameters.
+ * @param {string} url The base URL.
+ * @param {Object.<string, string>} params The URL parameters and values.
+ * @return {string} The complete URL.
+ * @private
+ */
+function buildUrl_(url, params) {
+  var paramString = Object.keys(params).map(function(key) {
+    return encodeURIComponent(key) + '=' + encodeURIComponent(params[key]);
+  }).join('&');
+  return url + (url.indexOf('?') >= 0 ? '&' : '?') + paramString;
+}
